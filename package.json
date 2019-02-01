@@ -1,0 +1,27 @@
+{
+  "name": "kr.co.wisetracker.tracker",
+  "version": "0.0.1",
+  "description": "WiseTracker Native SDK Cordova Plugin",
+  "cordova": {
+    "id": "kr.co.wisetracker.tracker",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WisetrackerTechteam/WiseTrackerCordova.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "WiseTracker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WisetrackerTechteam/WiseTrackerCordova/issues"
+  },
+  "homepage": "https://github.com/WisetrackerTechteam/WiseTrackerCordova#readme"
+}
