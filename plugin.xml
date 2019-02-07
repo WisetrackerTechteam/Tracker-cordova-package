@@ -1,10 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="WiseTracker" version="0.0.1"
-    xmlns="http://apache.org/cordova/ns/plugins/1.0">
+<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="WiseTracker"
+    version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
     <name>WiseTracker</name>
-
-    <js-module name="WiseTracker" src="www/WiseTracker.js">
-        <clobbers target="cordova.plugins.WiseTracker" />
+    <js-module src="www/WiseTracker.js">
     </js-module>
 
     <platform name="android">
