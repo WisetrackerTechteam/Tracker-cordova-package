@@ -1,27 +1,27 @@
-exports.init = function(key, value, success, error) {
-
-	/**
-	* set your App Key ( required ) 
-	**/
-    var YOUR_APP_KEY = "YOU HAVE TO SET YOUR APP KEY.";
-  
-	/**
-	* Don't modify below source area.
-    **/ 
+/**
+* set your App Key ( required ) 
+**/
+exports.setWisetrackerAppKey = function(key, value, success, error) { 
 	// Native SDK init start.
 	cordova.exec(function() {console.log('success')},
 						function() {console.log('error')},
 						"WiseTrackerBridge",
 						"setWisetrackerAppKey",
-						[YOUR_APP_KEY]);
+						[key]);
 
+}
+/**
+* Don't modify below source area.
+* Create WiseTracker Object to use WebPage. 
+**/  
+exports.init = function(key, value, success, error) {
+  
 	cordova.exec(function() {console.log('success')},
 						function() {console.log('error')},
 						"WiseTrackerBridge",
 						"init",
-						[]); 
+						[]);  
 
-    // Create WiseTracker Object to use WebPage. 
 	window.WiseTracker = {
 	   sendTransaction : function() {
 		   cordova.exec(function() {console.log('success')},
