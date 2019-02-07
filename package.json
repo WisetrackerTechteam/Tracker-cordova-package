@@ -1,9 +1,9 @@
 {
-  "name": "kr.co.wisetracker.tracker",
+  "name": "WiseTracker",
   "version": "0.0.1",
   "description": "WiseTracker Native SDK Cordova Plugin",
   "cordova": {
-    "id": "kr.co.wisetracker.tracker",
+    "id": "WiseTracker",
     "platforms": [
       "android",
       "ios"

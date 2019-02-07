@@ -1,9 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="kr.co.wisetracker.tracker"
+<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="WiseTacker"
     version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
     <name>WiseTracker</name>
-    <js-module name="WiseTracker" src="www/WiseTracker.js">
-        <clobbers target="cordova.plugins.WiseTracker" />
+    <js-module name="WiseTracker" src="WiseTracker.js">
     </js-module>
 
     <platform name="android">
@@ -76,6 +75,7 @@
         <config-file parent="/*" target="config.xml">
             <feature name="WiseTrackerBridge">
                 <param name="ios-package" value="WiseTrackerBridge" />
+                <param name="onload" value="true" />
             </feature>
         </config-file>
         <source-file src="src/ios/WiseTrackerBridge.m" />
