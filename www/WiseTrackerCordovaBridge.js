@@ -1,4 +1,13 @@
-exports.init = function(key, value, success, error) { 
+exports.init = function(key, value, success, error) {
+
+	/**
+	* set your App Key 
+	**/
+    var YOUR_APP_KEY = "";
+  
+	/**
+	* Don't modify below source area.
+    **/
 	window.WiseTracker = {
 	   sendTransaction : function() {
 		   cordova.exec(function() {console.log('success')},
