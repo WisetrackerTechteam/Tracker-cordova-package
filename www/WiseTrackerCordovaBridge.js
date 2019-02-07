@@ -7,7 +7,21 @@ exports.init = function(key, value, success, error) {
   
 	/**
 	* Don't modify below source area.
-    **/
+    **/ 
+	// Native SDK init start.
+	cordova.exec(function() {console.log('success')},
+						function() {console.log('error')},
+						"WiseTrackerBridge",
+						"setWisetrackerAppKey",
+						[YOUR_APP_KEY]);
+
+	cordova.exec(function() {console.log('success')},
+						function() {console.log('error')},
+						"WiseTrackerBridge",
+						"init",
+						[]); 
+
+    // Create WiseTracker Object to use WebPage. 
 	window.WiseTracker = {
 	   sendTransaction : function() {
 		   cordova.exec(function() {console.log('success')},
