@@ -1,12 +1,12 @@
 /**
 * set your App Key ( required ) 
 **/
-exports.setWisetrackerAppKey = function(key, value, success, error) { 
+exports.setWisetrackerAppkey = function(key, value, success, error) {
 	// Native SDK init start.
 	cordova.exec(function() {console.log('success')},
 						function() {console.log('error')},
 						"WiseTrackerBridge",
-						"setWisetrackerAppKey",
+						"setWisetrackerAppkey",
 						[key]);
 
 }
