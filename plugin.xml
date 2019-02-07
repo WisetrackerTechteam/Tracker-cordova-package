@@ -1,2 +1,86 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="kr.co.wisetracker.tracker" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>WiseTracker</name><js-module name="WiseTracker" src="www/WiseTracker.js"><clobbers target="cordova.plugins.WiseTracker" /></js-module><platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="WiseTracker"><param name="android-package" value="kr.co.wisetracker.tracker.WiseTracker" /></feature></config-file><config-file parent="/*" target="AndroidManifest.xml" /><source-file src="src/android/WiseTracker.java" target-dir="src/kr/co/wisetracker/tracker/WiseTracker" /></platform><platform name="ios"><config-file parent="/*" target="config.xml"><feature name="WiseTrackerBridge"><param name="ios-package" value="WiseTrackerBridge" /></feature></config-file><source-file src="src/ios/WiseTrackerBridge.m" /><source-file src="src/ios/WiseTrackerBridge.h"/><source-file src="src/ios/WiseTracker.framework"/></platform></plugin>
+<plugin xmlns:android="http://schemas.android.com/apk/res/android" id="kr.co.wisetracker.tracker"
+    version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>WiseTracker</name>
+    <js-module name="WiseTracker" src="www/WiseTracker.js">
+        <clobbers target="cordova.plugins.WiseTracker" />
+    </js-module>
+
+    <platform name="android">
+
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="WiseTrackerBridge">
+                <param name="android-package" value="kr.co.wisetracker.tracker.WiseTrackerBridge" />
+            </feature>
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+        </config-file>
+
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+
+            <receiver android:name="kr.co.wisetracker.insight.receiver.InsightReceiver"
+                android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.PACKAGE_ADDED" />
+                    <action android:name="android.intent.action.PACKAGE_CHANGED" />
+                    <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                    <data android:scheme="package" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="com.android.vending.INSTALL_REFERRER" />
+                </intent-filter>
+                <intent-filter android:exported="true">
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                </intent-filter>
+            </receiver>
+
+            <service android:name="kr.co.wisetracker.insight.job.WisetrackerJob"
+                android:exported="false">
+                <intent-filter>
+                    <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+                </intent-filter>
+            </service>
+
+            <service android:name="kr.co.wisetracker.insight.service.InsightService"
+                android:enabled="true">
+                <intent-filter>
+                    <action
+                        android:name="kr.co.wisetracker.insight.lib.StaticValues.START_SERVICE" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="wisetracker.intent.action.ACTIVATE_ALARM" />
+                </intent-filter>
+                <intent-filter android:exported="false">
+                    <action android:name="SEND_ALARM" />
+                </intent-filter>
+            </service>
+
+        </config-file>
+
+        <source-file src="src/android/WiseTrackerBridge.java"
+            target-dir="src/kr/co/wisetracker/tracker/WiseTrackerBridge" />
+        <framework custom="true" src="src/android/plugin.gradle" type="gradleReference" />
+
+    </platform>
+
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="WiseTrackerBridge">
+                <param name="ios-package" value="WiseTrackerBridge" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/WiseTrackerBridge.m" />
+        <source-file src="src/ios/WiseTrackerBridge.h" />
+        <source-file src="src/ios/WiseTracker.framework" />
+    </platform>
+
+</plugin>
