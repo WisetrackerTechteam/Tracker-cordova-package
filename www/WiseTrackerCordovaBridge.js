@@ -1,9 +1,9 @@
 exports.init = function(key, value, success, error) {
 
 	/**
-	* set your App Key 
+	* set your App Key ( required ) 
 	**/
-    var YOUR_APP_KEY = "";
+    var YOUR_APP_KEY = "YOU HAVE TO SET YOUR APP KEY.";
   
 	/**
 	* Don't modify below source area.
