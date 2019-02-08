@@ -38,20 +38,28 @@ exports.init = function(key, value, success, error) {
 						[]);
 	   },
    
-	   startPage: function() {
+	   startPage: function(code) {
 		   cordova.exec(function() {console.log('success')},
 						function() {console.log('error')},
 						"WiseTrackerBridge",
 						"startPage",
-						[]);
+						[code]);
 	   },
+
+	   endPage: function(code) {
+       	   cordova.exec(function() {console.log('success')},
+       					function() {console.log('error')},
+       					"WiseTrackerBridge",
+       					"endPage",
+       					[code]);
+       },
    
-	   endStartPage: function() {
+	   endStartPage: function(code) {
 		   cordova.exec(function() {console.log('success')},
 						function() {console.log('error')},
 						"WiseTrackerBridge",
 						"endStartPage",
-						[]);
+						[code]);
 	   },
    
 	   setGoal: function(key, value) {
@@ -556,6 +564,118 @@ exports.init = function(key, value, success, error) {
 						"WiseTrackerBridge",
 						"setPaymentTypeForOllehTv",
 						[mCd, sCd]);
-	   }
-   }; 
+	   },
+
+	   setGoalCustomMvtTag: function(key, value) {
+       	    cordova.exec(function() {console.log('success')},
+       					function() {console.log('error')},
+       					"WiseTrackerBridge",
+       					"setGoalCustomMvtTag",
+       					[key, value]);
+       },
+
+       setGoalProductCategory: function(category) {
+              cordova.exec(function() {console.log('success')},
+              			function() {console.log('error')},
+              			"WiseTrackerBridge",
+              			"setGoalProductCategory",
+              			[category]);
+       },
+
+       setOrderProductType: function(type) {
+              cordova.exec(function() {console.log('success')},
+                     	function() {console.log('error')},
+                     	"WiseTrackerBridge",
+                     	"setOrderProductType",
+                     	[type]);
+       },
+
+       setOrderProductTypeArray: function(array) {
+              cordova.exec(function() {console.log('success')},
+              			function() {console.log('error')},
+              			"WiseTrackerBridge",
+              			"setOrderProductTypeArray",
+              			[array]);
+       },
+
+       setOrderConversionData: function(key, value) {
+             cordova.exec(function() {console.log('success')},
+              			function() {console.log('error')},
+              			"WiseTrackerBridge",
+              			"setOrderConversionData",
+              			[key, value]);
+       },
+
+       setOrderConversionDataArray: function(key, array) {
+             cordova.exec(function() {console.log('success')},
+              			function() {console.log('error')},
+              			"WiseTrackerBridge",
+              			"setOrderConversionDataArray",
+              			[key, array]);
+       },
+
+       useIkwdWithConversion: function(value) {
+             cordova.exec(function() {console.log('success')},
+              			function() {console.log('error')},
+              			"WiseTrackerBridge",
+              			"useIkwdWithConversion",
+              			[value]);
+       },
+
+       useMvt1WithConversion: function(value) {
+            cordova.exec(function() {console.log('success')},
+              			function() {console.log('error')},
+              			"WiseTrackerBridge",
+              			"useMvt1WithConversion",
+              			[value]);
+       },
+
+       useMvt2WithConversion: function(value) {
+             cordova.exec(function() {console.log('success')},
+                     	function() {console.log('error')},
+                     	"WiseTrackerBridge",
+                     	"useMvt2WithConversion",
+                     	[value]);
+       },
+
+       useMvt3WithConversion: function(value) {
+            cordova.exec(function() {console.log('success')},
+                     	function() {console.log('error')},
+                     	"WiseTrackerBridge",
+                     	"useMvt3WithConversion",
+                     	[value]);
+       },
+
+       setOrderDate: function(date) {
+            cordova.exec(function() {console.log('success')},
+                        function() {console.log('error')},
+                        "WiseTrackerBridge",
+                        "setOrderDate",
+                        [date]);
+       },
+
+       setOrderDateArray: function(date, count) {
+            cordova.exec(function() {console.log('success')},
+                     	function() {console.log('error')},
+                     	"WiseTrackerBridge",
+                     	"setOrderDateArray",
+                     	[date, count]);
+       },
+
+       setWisetrackerDebugMode: function(mode) {
+            cordova.exec(function() {console.log('success')},
+                     	function() {console.log('error')},
+                     	"WiseTrackerBridge",
+                     	"setWisetrackerDebugMode",
+                     	[mode]);
+       },
+
+       sendImmediatelyClickData: function(key, value) {
+            cordova.exec(function() {console.log('success')},
+                       function() {console.log('error')},
+                       "WiseTrackerBridge",
+                       "sendImmediatelyClickData",
+                       [key, value]);
+       }
+   };
 } 
