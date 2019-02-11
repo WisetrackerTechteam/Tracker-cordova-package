@@ -1,3 +1,4 @@
+cordova.define("kr.co.wisetracker.WiseTrackerCordovaBridge", function(require, exports, module) {
 /**
 * set your App Key ( required ) 
 **/
@@ -605,6 +606,14 @@ exports.init = function(key, value, success, error) {
               			"setOrderConversionData",
               			[key, value]);
        },
+               
+       setOrderConversionDataById: function(key, value, pageId) {
+           cordova.exec(function() {console.log('success')},
+                        function() {console.log('error')},
+                        "WiseTrackerBridge",
+                        "setOrderConversionDataById",
+                        [key, value, pageId]);
+       },
 
        setOrderConversionDataArray: function(key, array) {
              cordova.exec(function() {console.log('success')},
@@ -679,3 +688,4 @@ exports.init = function(key, value, success, error) {
        }
    };
 } 
+});
