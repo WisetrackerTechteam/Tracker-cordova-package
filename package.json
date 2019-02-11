@@ -1,27 +1,27 @@
 {
-  "name": "WiseTracker",
-  "version": "0.0.1",
-  "description": "WiseTracker Native SDK Cordova Plugin",
-  "cordova": {
-    "id": "WiseTracker",
-    "platforms": [
-      "android",
-      "ios"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WisetrackerTechteam/WiseTrackerCordova.git"
-  },
-  "keywords": [
-    "ecosystem:cordova",
-    "cordova-android",
-    "cordova-ios"
-  ],
-  "author": "WiseTracker",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/WisetrackerTechteam/WiseTrackerCordova/issues"
-  },
-  "homepage": "https://github.com/WisetrackerTechteam/WiseTrackerCordova#readme"
+ "name": "WiseTrackerCordovaBridge",
+ "version": "0.0.1",
+ "description": "Wisetracker Cordova plugin",
+ "cordova": {
+   "id": "kr.co.wisetracker",
+   "platforms": [
+     "android",
+     "ios"
+   ]
+ },
+ "repository": {
+   "type": "git",
+   "url": "git+https://github.com/WisetrackerTechteam/WiseTrackerCordova.git"
+ },
+ "keywords": [
+   "ecosystem:cordova",
+   "cordova-android",
+   "cordova-ios"
+ ],
+ "author": "Wisetracker Techteam",
+ "license": "ISC",
+ "bugs": {
+   "url": "https://github.com/WisetrackerTechteam/WiseTrackerCordova/issues"
+ },
+ "homepage": "https://github.com/WisetrackerTechteam/WiseTrackerCordova#readme"
 }

@@ -280,7 +280,9 @@ public class WiseTrackerBridge extends CordovaPlugin {
                 Log.d("cordova", "setProductCategory");
                 String category = args.getString(0);
                 Log.d("cordova", "category: " + category);
-                WiseTracker.setProductCategory(category);
+                String name = args.getString(1);
+                Log.d("cordova", "name: " + name);
+                WiseTracker.setProductCategory(category, name);
                 callbackContext.success("setProductCategory success");
                 return true;
 
