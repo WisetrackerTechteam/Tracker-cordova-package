@@ -1,8 +1,7 @@
 repositories {
     jcenter()
-    maven { url 'https://dl.bintray.com/wisetracker/maven' }
 }
 
 dependencies {
-    implementation 'kr.co.wisetracker.insight:SDK_V1:21.2.52'
+    implementation 'kr.co.wisetracker.insight:SDK_V1:21.3.10'
 }
