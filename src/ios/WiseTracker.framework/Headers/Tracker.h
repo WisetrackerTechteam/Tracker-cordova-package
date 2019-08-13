@@ -27,6 +27,7 @@
 @property(nonatomic,retain)DocumentManager* documentManager;
 @property(nonatomic,assign)NSInteger dataLengthCounter;
 @property(nonatomic,assign)NSInteger trkCounter;
+@property(nonatomic,assign)long long webViewLoadTime;
 @property(nonatomic,retain)BSConfig* bsConfig;
 @property(nonatomic,retain)WisetrackerPostback* wisetrackerPostback;
 @property(nonatomic,retain)SessionManager* sessionManager;
@@ -72,6 +73,7 @@
 - (void)setProductType:(NSString *)type;
 - (void)setProductCategory:(NSString *)code;
 - (void)setProductCategory:(NSString *)code name:(NSString *)name;
+- (void)setOrderNPaymentId:(NSString *)code;
 - (void)setOrderProduct:(NSString *)code;
 - (void)setOrderProductArray:(NSArray *)code;
 - (void)setOrderProductType:(NSString *)type;
@@ -94,6 +96,8 @@
 - (void)putSessionData:(NSString *)key value:(NSString *)value;
 - (BSMap*)putSessionReferrer:(NSString*)referrer;
 - (BOOL)updateDocument;
+- (void)putAdMarketingParam:(NSString*)type code:(NSString*)code;
+- (void)putAdMarketingParam:(NSString*)type code:(NSString*)code period:(NSNumber*)period;
 - (void)putPageParam:(id)obj ParamName:(NSString *)ParamName paramValue:(id)paramValue;
 - (BSMap *)builder;
 - (BSMap *)builder:(id)obj;
@@ -114,6 +118,7 @@
 - (void)checkReferrerPush:(NSDictionary *)obj;
 //- (void)injectTracker:(UIWebView *)webView;
 //- (void)injectTracker:(UIWebView *)_webView frameId:(NSString *)_frameId;
+- (void)setStartWebViewLoad;
 - (void)injectTracker:(UIWebView *)_webView frameId:(NSString *)_frameId withStartEndPage:(BOOL) _withStartEndPage;
 - (void)injectTracker:(NSString*) evalutionId webView:(UIWebView *)_webView frameId:(NSString *)_frameId withStartEndPage:(BOOL) _withStartEndPage;
 
@@ -154,6 +159,7 @@
 -(void)changedToForeground;
 -(NSDictionary*)getAuthorizationSdkData;
 -(void)sendClickDataImmediately:(NSDictionary*) clickData;
+-(void)sendGoalDataImmediately;
 -(void)setFacebookReferrerData:(NSURL*)url;
 
 @end
