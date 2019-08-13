@@ -30,7 +30,7 @@ $ plugman install -d --platform ios --project [프로젝트경로]/platforms/ios
 
 SDK 설치가 완료되면 Xcode에 다음과 같이 SDK 사용을 위한 파일이 추가된 것을 확인합니다.
 
-![](http://www.wisetracker.co.kr/wp-content/uploads/2019/04/ios-cordova-addfile.jpg)
+![](http://www.wisetracker.co.kr/wp-content/uploads/2019/08/cordova_index.png)
 
 ### ANDROID
 
