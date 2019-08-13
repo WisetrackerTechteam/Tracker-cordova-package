@@ -1,8 +1,6 @@
 # WiseTrackerCordova
 WiseTracker Native SDK Cordova Plugin
 
-## iOS 설정 방법
-
 ### 1. Plugman 설치
 Cordova 환경에서 원격지에(github) 존재하는 라이브러리를 설치하기 위해서 plugman 을 먼저 설치해야 합니다. 이미 plugman 을 사용하고 있다면, 이 과정은 진행하지 않아도 됩니다.
 
@@ -26,16 +24,22 @@ $ plugman –v
 $ plugman install -d --platform ios --project [프로젝트경로]/platforms/ios --plugin https://github.com/WisetrackerTechteam/WiseTrackerCordova.git
 ```
 
+### 3. 플러그인 설치 확인
 
-### 3. SDK 초기 설정
+### IOS
+
 SDK 설치가 완료되면 Xcode에 다음과 같이 SDK 사용을 위한 파일이 추가된 것을 확인합니다.
 
 ![](http://www.wisetracker.co.kr/wp-content/uploads/2019/04/ios-cordova-addfile.jpg)
 
+### ANDROID
 
-다음으로, Cordova 프로젝트의 index.js 파일에 SDK를 초기화하는 코드를 추가합니다.
+SDK 설치가 완료되면 Android Studio에 다음과 같이 SDK 사용을 위한 파일이 추가된 것을 확인 합니다.
 
-![](http://www.wisetracker.co.kr/wp-content/uploads/2019/04/ios-cordova-indexjs.jpg)
+![](http://www.wisetracker.co.kr/wp-content/uploads/2019/04/aos-cordova-addfile.jpg)
+
+### 4. SDK 초기 설정
+Cordova 프로젝트의 index.js 파일에 SDK를 초기화하는 코드를 추가합니다.
 
 - index.js 코드 예시
 
@@ -74,5 +78,3 @@ var app = {
 
 app.initialize();
 ```
-
-## iOS 설정 방법
