@@ -1,7 +1,7 @@
 # WiseTrackerCordova
 WiseTracker Native SDK Cordova Plugin
 
-##iOS 설정 방법
+## iOS 설정 방법
 
 ### 1. Plugman 설치
 Cordova 환경에서 원격지에(github) 존재하는 라이브러리를 설치하기 위해서 plugman 을 먼저 설치해야 합니다. 이미 plugman 을 사용하고 있다면, 이 과정은 진행하지 않아도 됩니다.
@@ -74,3 +74,5 @@ var app = {
 
 app.initialize();
 ```
+
+## iOS 설정 방법
