@@ -55,15 +55,15 @@
     NSString *key = [command.arguments objectAtIndex:0];
     NSInteger value = [[command.arguments objectAtIndex:1] integerValue];
     
-    [WiseTracker setGoal:key value:value];
+    [WiseTracker setGoal:key value:[NSNumber numberWithInteger:value]];
 }
-    
+
 - (void)setGoalById:(CDVInvokedUrlCommand*)command {
     NSString *pageId = [command.arguments objectAtIndex:0];
     NSString *key = [command.arguments objectAtIndex:1];
     NSInteger value = [[command.arguments objectAtIndex:2] integerValue];
     
-    [WiseTracker setGoal:key value:value byId:pageId];
+    [WiseTracker setGoal:key value:[NSNumber numberWithInteger:value] byId:pageId];
 }
     
 - (void)setAcceptPushReceived:(CDVInvokedUrlCommand*)command {
