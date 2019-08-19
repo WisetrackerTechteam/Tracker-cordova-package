@@ -1,4 +1,3 @@
-cordova.define("kr.co.wisetracker.WiseTrackerCordovaBridge", function(require, exports, module) {
 /**
 * set your App Key ( required ) 
 **/
@@ -688,4 +687,3 @@ exports.init = function(key, value, success, error) {
        }
    };
 } 
-});
