@@ -34,9 +34,33 @@ SDK 설치가 완료되면 Xcode에 다음과 같이 SDK 사용을 위한 파일
 
 ### ANDROID
 
+#### SDK 설치 확인
 SDK 설치가 완료되면 Android Studio에 다음과 같이 SDK 사용을 위한 파일이 추가된 것을 확인 합니다.
 
 ![](http://www.wisetracker.co.kr/wp-content/uploads/2019/04/aos-cordova-addfile.jpg)
+
+#### Http 통신 허용 설정
+프로젝트의 **Target API 28 이상**일 경우 Android 프로젝트 **AndroidManifest.xml** 파일에 **android:networkSecurityConfig="@xml/network_security_config"** 추가 (network_security_config 파일이 없다면 생성) 이후 xml/network_security_config 파일에 아래의 값을 추가
+
+```xml
+// AndroidManifest.xml
+<application
+	android:icon="@mipmap/ic_launcher"
+	android:label="@string/app_name"
+	android:networkSecurityConfig="@xml/network_security_config"
+	android:theme="@style/AppTheme">
+```
+	
+```xml
+// app/res/xml/network_security_config.xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">www.wisetracker.co.kr</domain>
+        <domain includeSubdomains="true">trk.wisetracker.co.kr</domain>
+    </domain-config>
+</network-security-config>
+```
 
 ### 4. SDK 초기 설정
 Cordova 프로젝트의 index.js 파일에 SDK를 초기화하는 코드를 추가합니다.
