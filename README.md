@@ -103,7 +103,7 @@ var app = {
 app.initialize();
 ```
 
-### 광고 성과 분석이 필요한 경우
+### 5. 광고 성과 분석이 필요한 경우
 
 #### iOS
 iOS Native의 appDelegate.m파일에 아래와 같이 추가해줍니다.
