@@ -127,6 +127,7 @@ iOS Native의 appDelegate.m파일에 아래와 같이 추가해줍니다.
 딥링크를 통해 Activity 진입 할 경우 위의 초기화 코드를 우선하여 네이티브 파일에 접근하기 때문에 호출 중복 상황이 발생하여 하나의 예시로만 사용되어야 합니다.
 
 a) AndroidManifest.xml 파일에 딥링크로 진입하는 <activity></activity> 태그 안에 <intent-filter></intent-filter> 추가
+
 : 아래 예시는 wisetracker://wisetracker.co.kr **wisetracker** 스키마와 **wisetracker.co.kr** 호스트로 들어오는 링크 샘플
 
 ```xml
@@ -142,6 +143,7 @@ a) AndroidManifest.xml 파일에 딥링크로 진입하는 <activity></activity>
 ```
 
 b) 딥링크 진입 Activity 파일에 아래 내용 추가
+
 : 아래 예시는 MainActivity.java 파일로 딥링크 진입하는 샘플 코드입니다. 상황에 맞게 코드 적용해주세요.
 
 (1) MainActivity class 선언 위에 **import kr.co.wisetracker.tracker.WiseTracker;** 추가
