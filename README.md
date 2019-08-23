@@ -102,3 +102,20 @@ var app = {
 
 app.initialize();
 ```
+
+### 광고 성과 분석이 필요한 경우
+
+#### iOS
+iOS Native의 appDelegate.m파일에 아래와 같이 추가해줍니다.
+
+#import<WiseTracker/WiseTracker.h>
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+	[WiseTracker applicationKey:@"앱의 APPKEY 삽입"];
+	[WiseTracker setApplication:application];
+	[WiseTracker initEnd];
+	[WiseTracker urlRefererCheck:sourceApplication url:url];
+	return YES;
+}
+
+####Android
