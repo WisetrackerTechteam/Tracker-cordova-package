@@ -122,3 +122,69 @@ iOS Native의 appDelegate.m파일에 아래와 같이 추가해줍니다.
 ```
 
 #### Android
+
+**필수** Android 경우 해당 광고 성과 분석 내용을 추가할 경우 **SDK 초기 설정(index.js 코드 예시)**에 적용된 호출 함수를 제거해 주세요.
+딥링크를 통해 Activity 진입 할 경우 위의 초기화 코드를 우선하여 네이티브 파일에 접근하기 때문에 호출 중복 상황이 발생하여 하나의 예시로만 사용되어야 합니다.
+
+a) AndroidManifest.xml 파일에 딥링크로 진입하는 <activity></activity> 태그 안에 <intent-filter></intent-filter> 추가
+: 아래 예시는 wisetracker://wisetracker.co.kr **wisetracker** 스키마와 **wisetracker.co.kr** 호스트로 들어오는 링크 샘플
+
+```xml
+// AndroidManifest.xml
+	<intent-filter>
+		<action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+		<data
+                    android:host="wisetracker.co.kr"
+                    android:scheme="wisetracker" />
+	</intent-filter>
+```
+
+b) 딥링크 진입 Activity 파일에 아래 내용 추가
+: 아래 예시는 MainActivity.java 파일로 딥링크 진입하는 샘플 코드입니다. 상황에 맞게 코드 적용해주세요.
+
+(1) MainActivity class 선언 위에 **import kr.co.wisetracker.tracker.WiseTracker;** 추가
+(2) **WiseTracker.appKey("your_app_key");**, **WiseTracker.init(context);**, **WiseTracker.startPage("page key");**
+이 3가지 메소드를 호출해주세요.
+(3) onNewIntent 메소드를 오버라이드 하여 **WiseTracker.checkReferrer(intent);** 해당 함수를 호출해주세요.
+
+```java
+
+/* 추가 */
+import kr.co.wisetracker.tracker.WiseTracker;
+/* 추가 */
+
+public class MainActivity extends CordovaActivity
+{
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+
+        // enable Cordova apps to be started in the background
+        Bundle extras = getIntent().getExtras();
+        if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {
+            moveTaskToBack(true);
+        }
+
+        /* 추가 */
+        WiseTracker.setWisetrackerAppkey("your_app_key");
+        WiseTracker.init(this);
+        WiseTracker.startPage("page key");
+        /* 추가 */
+
+        // Set by <content src="index.html" /> in config.xml
+        loadUrl(launchUrl);
+    }
+
+    /* 추가 */
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        WiseTracker.checkReferrer(intent);
+    }
+    /* 추가 */
+
+}
+```
