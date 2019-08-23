@@ -108,6 +108,8 @@ app.initialize();
 #### iOS
 iOS Native의 appDelegate.m파일에 아래와 같이 추가해줍니다.
 
+
+```Objective-C
 #import<WiseTracker/WiseTracker.h>
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
@@ -117,5 +119,6 @@ iOS Native의 appDelegate.m파일에 아래와 같이 추가해줍니다.
 	[WiseTracker urlRefererCheck:sourceApplication url:url];
 	return YES;
 }
+```
 
-####Android
+#### Android
