@@ -111,20 +111,26 @@ xml/network_security_config 파일에 아래 내용 추가
 
 ### 3. IOS 코르도바 플러그인 설정
 
-#### 4. 플러그인 초기화
+### 4. 플러그인 초기화
 코르도바 프로젝트에서 앱 시작시 가장 먼저 로드되는 .js 파일에 플러그인을 초기화하는 코드를 추가합니다.
 아래 3가지 기본 적용 코드를 삽입해주세요. 적용 샘플코드 또한 첨부하였으니 같이 참조해주세요.
 
 #### a) AppKey 설정
+```javascript
 cordova.plugins.WiseTrackerCordovaBridge.setWisetrackerAppkey("YOUR_APP_KEY");
+```
 
 #### b) init 호출
+```javascript
 cordova.plugins.WiseTrackerCordovaBridge.init(); 
+```
 
 #### c) 페이지 분석 호출
+```javascript
 WiseTracker.startPage("pageId"); // 해당 페이지를 구분할 수 있는 식별자 (ex:pageUrl)
+```
 
-
+**샘플 코드는 index.js 기준으로 작성하였습니다. 적용 프로젝트에 맞게 적용해 주세요.**
 
 ```javascript
 
@@ -165,4 +171,3 @@ var app = {
 
 app.initialize();
 ```
-**샘플 코드는 index.js 기준으로 작성하였습니다. 프로젝트 설정에 맞게 적용해 주세요.**
