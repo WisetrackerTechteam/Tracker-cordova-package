@@ -78,10 +78,6 @@
             <!-- 개발용 true 배포용 false 권장 -->
             <meta-data android:name="WiseTrackerLogState" android:value="true" />
 
-            <!--  발급 받은 AppKey meta-data 추가 -->
-            <meta-data android:name="WiseTrackerKey"
-                android:value="twIAAB+LCAAAAAAAAACF0t9PwjAQB/B3/wrSP2A/GCCYUR7URCMQIwSjL6Z0x9awtcv1hvjf2+kSh2b41uY+d/02uXh2LPLeAdAqo6cs9AI24xcxgjUVSrDubAmVTntaFDBlhPs7Y4nxjKi88n13996VBUIh94CeNN4eY/+753ezKMsH+GB8+fwSvK43RZfLhM2+4CjajuU4kG/hcDScDAb9aDyJJl1tShbl+qMExu+vH4MgajmlCVLABsrKLg3jl303qqn8MS7rCvCgJNQ0DMLJ6DzODdVy0K0QqEK9UVbRjSAXMzyLd4AIeHssFcL/nlQByPiwLbbG5E05gW2VLmzK+E7kFmK/rp2SysITEGhym8A4YfWjTp9KBIkV6GRhEheq352pEEcXXMzVDtYunrNnPtDgevAcdEqZ40Gb+62l/ASPBcXwtwIAAA==" />
-
         </config-file>
 
         <source-file src="src/android/WiseTrackerBridge.java"
