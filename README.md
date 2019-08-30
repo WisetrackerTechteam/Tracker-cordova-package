@@ -53,7 +53,7 @@ http://report.wisetracker.co.kr 로그인
 
 ### 2. Android 코르도바 플러그인 설정
 
-#### 2.1 AndroidManifest.xml 파일 설정
+#### 2.1 AndroidManifest.xml 설정
 
 #### a) Http 통신 허용 설정
 코르도바 안드로이드 프로젝트의 **targetSdkVersion 28 이상**일 경우 http 통신 허용 설정을 해야 합니다.
@@ -95,7 +95,7 @@ xml/network_security_config 파일에 아래 내용 추가
 딥링크로 진입할 android:scheme="YOUR_SCHEME" 스키마와 android:host="YOUR_HOST" 호스트를 설정해 주세요.
 
 ```xml
-// 예시는 wisetracker://wisetracker.co.kr 링크로 진입시 딥링크 분석이 가능합니다.
+<!-- 예시는 wisetracker://wisetracker.co.kr 링크로 진입시 딥링크 분석이 가능하며, 사용될 값을 직접 수정해 주세요. -->
 <activity android:name="kr.co.wisetracker.tracker.DeepLinkActivity" 
           android:launchMode="singleTop" >
     <intent-filter>
@@ -113,7 +113,7 @@ xml/network_security_config 파일에 아래 내용 추가
 
 ### 4. 플러그인 초기화
 코르도바 프로젝트에서 앱 시작시 가장 먼저 로드되는 .js 파일에 플러그인을 초기화하는 코드를 추가합니다.
-아래 3가지 기본 적용 코드를 삽입해주세요. 적용 샘플코드 또한 첨부하였으니 같이 참조해주세요.
+아래 3가지 기본 적용 코드를 삽입해주세요. 적용 샘플코드 참조해주세요.
 
 #### a) AppKey 설정
 ```javascript
@@ -127,10 +127,10 @@ cordova.plugins.WiseTrackerCordovaBridge.init();
 
 #### c) 페이지 분석 호출
 ```javascript
-WiseTracker.startPage("pageId"); // 해당 페이지를 구분할 수 있는 식별자 (ex:pageUrl)
+WiseTracker.startPage("YOUR_UNIQUE_PAGE_VALUE");
 ```
 
-**샘플 코드는 index.js 기준으로 작성하였습니다. 적용 프로젝트에 맞게 적용해 주세요.**
+**샘플 코드는 index.js 기준으로 작성하였습니다. 적용 프로젝트에 맞게 설정해 주세요.**
 
 ```javascript
 
@@ -160,10 +160,10 @@ var app = {
 
 		/*
 		** Wisetracker SDK 초기 설정 코드 적용 예시 
-		**/
+		*/
 		cordova.plugins.WiseTrackerCordovaBridge.setWisetrackerAppkey("제공받은 앱 인증키를 설정합니다.");
 		cordova.plugins.WiseTrackerCordovaBridge.init(); 
-		WiseTracker.startPage("pageId"); // 해당 페이지를 구분할 수 있는 식별자 (ex:pageUrl)
+		WiseTracker.startPage("pageId"/* 페이지 식별자 입력 */); 
 		
     }
     
