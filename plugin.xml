@@ -33,9 +33,6 @@
                 <intent-filter>
                     <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
                 </intent-filter>
-                <intent-filter>
-                    <action android:name="com.android.vending.INSTALL_REFERRER" />
-                </intent-filter>
                 <intent-filter android:exported="true">
                     <action android:name="android.intent.action.BOOT_COMPLETED" />
                 </intent-filter>
@@ -63,17 +60,17 @@
                 </intent-filter>
             </service>
 
-            <!--  딥링크 진입 액티비티 선언 -->
-            <activity android:name="kr.co.wisetracker.tracker.DeepLinkActivity"
-                android:launchMode="singleTop">
-                <intent-filter>
-                    <action android:name="android.intent.action.VIEW" />
-                    <category android:name="android.intent.category.DEFAULT" />
-                    <category android:name="android.intent.category.BROWSABLE" />
-                    <!-- 딥링크로 진입될 스키마와 호스트 정보 입력 -->
-                    <data android:host="YOUR_HOST" android:scheme="YOUR_SCHEME" />
-                </intent-filter>
-            </activity>
+            <!--  딥링크 진입 액티비티 선언시 사용 -->
+            <!--<activity android:name="kr.co.wisetracker.tracker.DeepLinkActivity"-->
+            <!--android:launchMode="singleTop">-->
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.VIEW" />-->
+            <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--<category android:name="android.intent.category.BROWSABLE" />-->
+            <!--&lt;!&ndash; 딥링크로 진입될 스키마와 호스트 정보 입력 &ndash;&gt;-->
+            <!--<data android:host="YOUR_HOST" android:scheme="YOUR_SCHEME" />-->
+            <!--</intent-filter>-->
+            <!--</activity>-->
 
             <!-- 개발용 true 배포용 false 권장 -->
             <meta-data android:name="WiseTrackerLogState" android:value="true" />
