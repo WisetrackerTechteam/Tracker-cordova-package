@@ -61,6 +61,14 @@ exports.init = function(key, value, success, error) {
 						"endStartPage",
 						[code]);
 	   },
+
+	   sendGoalData: function() {
+            cordova.exec(function() {console.log('success sendGoalData')},
+                         function() {console.log('error sendGoalData')},
+                     	 "WiseTrackerBridge",
+                     	 "sendGoalData",
+                     	 []);
+       },
    
 	   setGoal: function(key, value) {
 		   cordova.exec(function() {console.log('success setGoal')},
