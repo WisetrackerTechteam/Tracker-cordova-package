@@ -638,6 +638,10 @@
     
     [WiseTracker sendClickData:eventCode eventName:eventName];
 }
+
+- (void)sendGoalData:(CDVInvokedUrlCommand*)command {
+    [WiseTracker sendGoalData];
+}
     
 - (void)setPaymentTypeForOllehTv:(CDVInvokedUrlCommand*)command {
     NSString *mCd = [command.arguments objectAtIndex:0];

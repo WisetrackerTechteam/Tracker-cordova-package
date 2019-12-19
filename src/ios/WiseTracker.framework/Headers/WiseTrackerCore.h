@@ -37,7 +37,7 @@ typedef uint_least32_t char32_t;
 typedef struct _NSZone NSZone;
 
 //WiseTracker Version
-#define WISETRACKER_SDK_VERSION @"21.3.6"
+#define WISETRACKER_SDK_VERSION @"21.3.17"
 
 @interface WiseTrackerCore : NSObject
 + (UIApplication *)application;
@@ -69,6 +69,7 @@ typedef struct _NSZone NSZone;
 //+ (void)checkReferrer:(NSString *)referrer;
 + (void)checkReferrerSet:(NSDictionary *)jsonDic;
 + (void)initEnd;
++ (void)initEnd:(NSDictionary *)launchOptions;
 + (BOOL)sendTransaction;
 + (BOOL)sendTransactionImmediate;
 + (BSMap *)builder:(id)obj;
@@ -309,6 +310,9 @@ typedef struct _NSZone NSZone;
 +(void)setPushMessageData:(NSString*)pushNo pushTitle:(NSString*)title;
 +(void)setPushMessageData:(NSString*)pushNo pushTitle:(NSString*)title period:(NSInteger)period;
 
++(void)setPushMessageData:(NSString *)pushNo pushTitle:(NSString *)title application:(UIApplication *)application;
++(void)setPushMessageData:(NSString *)pushNo pushTitle:(NSString *)title period:(NSInteger)period application:(UIApplication *)application;
+
 // for UIWebView
 + (void)injectTracker:(UIWebView *)webView;
 + (void)reInjectTracker:(NSString*)evaluationId webView:(UIWebView*)webView;
@@ -358,5 +362,34 @@ typedef struct _NSZone NSZone;
 +(void) sendClickData:(NSString*)eventCode eventName:(NSString *)eventName;
 +(void) sendGoalData;
 +(void)setFacebookReferrerData:(NSURL*)url;
+
+
+/**
+ * pncSubTp2~pncSubTp5 Api
+ **/
+
++ (void)setGoalProductType2:(NSString *)type;
++ (void)setGoalProductTypeArray2:(NSArray *)type;
++ (void)setProductType2:(NSString *)type;
++ (void)setOrderProductType2:(NSString *)type;
++ (void)setOrderProductTypeArray2:(NSArray *)type;
+
++ (void)setGoalProductType3:(NSString *)type;
++ (void)setGoalProductTypeArray3:(NSArray *)type;
++ (void)setProductType3:(NSString *)type;
++ (void)setOrderProductType3:(NSString *)type;
++ (void)setOrderProductTypeArray3:(NSArray *)type;
+
++ (void)setGoalProductType4:(NSString *)type;
++ (void)setGoalProductTypeArray4:(NSArray *)type;
++ (void)setProductType4:(NSString *)type;
++ (void)setOrderProductType4:(NSString *)type;
++ (void)setOrderProductTypeArray4:(NSArray *)type;
+
++ (void)setGoalProductType5:(NSString *)type;
++ (void)setGoalProductTypeArray5:(NSArray *)type;
++ (void)setProductType5:(NSString *)type;
++ (void)setOrderProductType5:(NSString *)type;
++ (void)setOrderProductTypeArray5:(NSArray *)type;
 
 @end
