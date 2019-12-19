@@ -111,6 +111,49 @@ xml/network_security_config 파일에 아래 내용 추가
 
 ### 3. IOS 코르도바 플러그인 설정
 
+##### 3.1 http 통신 허용 설정
+- http통신을 허용하기 위해 info.plist파일에 NSAppTransportSecurity를 아래와 같이 추가합니다
+
+```xml
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+```
+#### 3.2 info.plist파일 디버깅 모드 세팅
+info.plist 파일을 open할때 list로 보기가 아니라 source로 보기를 선택한 후, 아래와 같이 추가합니다
+
+```xml
+// 개발용 true. 배포용 false 권장
+    <key>WiseTrackerLogState</key>
+    <string>true</string>
+```
+
+#### 3.3 외부 유입 경로 분석 ( Deeplink )
+앱이 설치된 이후 DeepLink를 통해서 앱이 실행되는 경로 분석이 필요한 경우 
+네이티브 프로젝트의 AppDelegate 정의 항목중 openURL 함수 구현부에 아래와 같이 추가해줍니다.
+
+ #import<WiseTracker/WiseTracker.h> 추가
+
+##### iOS 4.2–9.0
+```Objective-C
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+	[WiseTracker urlRefererCheck:sourceApplication url:url];
+	return YES;
+}
+```
+
+OR
+
+##### iOS 9.0+
+
+```Objective-C
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    [WiseTracker urlRefererCheck:@"" url:url];
+    return YES;
+
+}
 ### 4. 플러그인 초기화
 코르도바 프로젝트에서 앱 시작시 가장 먼저 로드되는 .js 파일에 플러그인을 초기화하는 코드를 추가합니다.
 아래 3가지 기본 적용 코드를 삽입해주세요. 적용 샘플코드 참조해주세요.
