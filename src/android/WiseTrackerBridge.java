@@ -128,6 +128,13 @@ public class WiseTrackerBridge extends CordovaPlugin {
                 callbackContext.success("putSessionReferrer success");
                 return true;
 
+            } else if (action.equals("sendGoalData")) {
+
+                Log.d("cordova", "sendGoalData");
+                WiseTracker.sendGoalData();
+                callbackContext.success("sendGoalData success");
+                return true;
+
             } else if (action.equals("setGoal")) {
 
                 Log.d("cordova", "setGoal");
