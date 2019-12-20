@@ -94,6 +94,7 @@
         <source-file src="src/ios/WiseTrackerBridge.m" />
         <source-file src="src/ios/WiseTrackerBridge.h" />
         <source-file src="src/ios/WiseTracker.framework" />
+        <source-file src="src/ios/iosGetFkey.html" />
     </platform>
 
 </plugin>
