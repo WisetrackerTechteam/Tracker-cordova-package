@@ -41,7 +41,7 @@ $ plugman install -d --platform ios --project [프로젝트경로]/platforms/ios
 #### b) IOS
 코르도바 프로젝트에 플러그인이 정상 다운로드되면 X-code를 통해 다음과 같이 플러그인 파일이 추가된 것을 확인할 수 있습니다.
 
-![](http://www.wisetracker.co.kr/wp-content/uploads/2019/08/cordova_index.png)
+![](http://www.wisetracker.co.kr/wp-content/uploads/2019/12/cordova_foler.png)
 
 #### 1.4 Wisetracker AppKey 발급
 
@@ -111,7 +111,14 @@ xml/network_security_config 파일에 아래 내용 추가
 
 ### 3. IOS 코르도바 플러그인 설정
 
-##### 3.1 http 통신 허용 설정
+##### 3.1 Xcode 프로젝트 세팅
+- TARGETS - Build Phase 하위 메뉴에 아래와 같이 두가지 세팅을 추가합니다.
+- Copy Bundle Resources 메뉴에 플러그인과 함께 제공된  iosGetFkey.html 파일 추가
+- Link Binary With Libraries 메뉴에 플러그인과 함께 제공된 WiseTracker.framework 파일 추가
+
+![](http://www.wisetracker.co.kr/wp-content/uploads/2019/12/cordova_setting.png)
+
+##### 3.2 http 통신 허용 설정
 - http통신을 허용하기 위해 info.plist파일에 NSAppTransportSecurity를 아래와 같이 추가합니다
 
 ```xml
@@ -121,7 +128,7 @@ xml/network_security_config 파일에 아래 내용 추가
 		<true/>
 	</dict>
 ```
-#### 3.2 info.plist파일 디버깅 모드 세팅
+#### 3.3 info.plist파일 디버깅 모드 세팅
 info.plist 파일을 open할때 list로 보기가 아니라 source로 보기를 선택한 후, 아래와 같이 추가합니다
 
 ```xml
@@ -130,7 +137,7 @@ info.plist 파일을 open할때 list로 보기가 아니라 source로 보기를 
     <string>true</string>
 ```
 
-#### 3.3 외부 유입 경로 분석 ( Deeplink )
+#### 3.4 외부 유입 경로 분석 ( Deeplink )
 앱이 설치된 이후 DeepLink를 통해서 앱이 실행되는 경로 분석이 필요한 경우 
 네이티브 프로젝트의 AppDelegate 정의 항목중 openURL 함수 구현부에 아래와 같이 추가해줍니다.
 
