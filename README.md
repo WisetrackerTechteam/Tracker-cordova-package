@@ -154,21 +154,23 @@ OR
     return YES;
 
 }
+```
+
 ### 4. 플러그인 초기화
 코르도바 프로젝트에서 앱 시작시 가장 먼저 로드되는 .js 파일에 플러그인을 초기화하는 코드를 추가합니다.
 아래 3가지 기본 적용 코드를 삽입해주세요. 적용 샘플코드 참조해주세요.
 
-#### a) AppKey 설정
+#### 4.1 AppKey 설정
 ```javascript
 cordova.plugins.WiseTrackerCordovaBridge.setWisetrackerAppkey("YOUR_APP_KEY");
 ```
 
-#### b) init 호출
+#### 4.2 init 호출
 ```javascript
 cordova.plugins.WiseTrackerCordovaBridge.init(); 
 ```
 
-#### c) 페이지 분석 호출
+#### 4.3 페이지 분석 호출
 ```javascript
 WiseTracker.startPage("YOUR_UNIQUE_PAGE_VALUE");
 ```
