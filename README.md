@@ -55,13 +55,20 @@ http://report.wisetracker.co.kr 로그인
 
 #### 2.1 AndroidManifest.xml 설정
 
-#### a) Http 통신 허용 설정
-코르도바 안드로이드 프로젝트의 **targetSdkVersion 28 이상**일 경우 http 통신 허용 설정을 해야 합니다.
-
-AndroidManifest.xml 파일의 <application 태그 안에 **android:networkSecurityConfig="@xml/network_security_config"** 내용을 추가해 주세요. (**network_security_config 파일이 없다면 생성**) 
+#### a) App Key 등록
 
 ```xml
-// AndroidManifest.xml
+<!-- 발급 받은 AppKey meta-data 추가 -->
+<meta-data
+    android:name="WiseTrackerKey"
+    android:value="YOUR_APP_KEY" />
+```
+
+#### b) Http 통신 허용 설정
+코르도바 안드로이드 프로젝트의 **targetSdkVersion 28 이상**일 경우 http 통신 허용 설정을 해야 합니다.
+
+```xml
+<!-- AndroidManifest.xml -->
 <application
 	android:icon="@mipmap/ic_launcher"
 	android:label="@string/app_name"
@@ -69,10 +76,8 @@ AndroidManifest.xml 파일의 <application 태그 안에 **android:networkSecuri
 	android:theme="@style/AppTheme">
 ```
 
-xml/network_security_config 파일에 아래 내용 추가
-
 ```xml
-// app/res/xml/network_security_config.xml
+<!-- app/res/xml/network_security_config.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
@@ -82,7 +87,7 @@ xml/network_security_config 파일에 아래 내용 추가
 </network-security-config>
 ```
 
-#### b) 디버깅 모드 설정
+#### c) 디버깅 모드 설정
 
 ```xml
 <!-- 개발용 true 배포용 false 권장 -->
@@ -91,7 +96,7 @@ xml/network_security_config 파일에 아래 내용 추가
 	android:value="true" />
 ```
 
-#### c) 딥링크 설정
+#### d) 딥링크 설정
 딥링크로 진입할 android:scheme="YOUR_SCHEME" 스키마와 android:host="YOUR_HOST" 호스트를 설정해 주세요.
 
 ```xml
