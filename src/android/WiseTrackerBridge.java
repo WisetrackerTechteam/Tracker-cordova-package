@@ -82,6 +82,22 @@ public class WiseTrackerBridge extends CordovaPlugin {
                 callbackContext.success("putInitData success");
                 return true;
 
+            } else if (action.equals("onPlayStart")) {
+
+                Log.d("cordova", "onPlayStart");
+                String obj = args.getString(0);
+                Log.d("cordova", "period obj : " + obj);
+                WiseTracker.onPlayStart(context, Integer.valueOf(obj));
+                callbackContext.success("onPlayStart success");
+                return true;
+
+            } else if (action.equals("onPlayStop")) {
+
+                Log.d("cordova", "onPlayStop");
+                WiseTracker.onPlayStop(context);
+                callbackContext.success("onPlayStop success");
+                return true;
+
             } else if (action.equals("startPage")) {
 
                 Log.d("cordova", "startPage");

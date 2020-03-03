@@ -37,6 +37,22 @@ exports.init = function(key, value, success, error) {
 						"sendTransactionImmediate",
 						[]);
 	   },
+
+       onPlayStart: function(code) {
+           cordova.exec(function() {console.log('success')},
+        				function() {console.log('error')},
+        				"WiseTrackerBridge",
+        			    "onPlayStart",
+        				[code]);
+       },
+
+       onPlayStop: function() {
+           cordova.exec(function() {console.log('success')},
+              			function() {console.log('error')},
+              			"WiseTrackerBridge",
+              			"onPlayStop",
+              			[]);
+       },
    
 	   startPage: function(code) {
 		   cordova.exec(function() {console.log('success')},
