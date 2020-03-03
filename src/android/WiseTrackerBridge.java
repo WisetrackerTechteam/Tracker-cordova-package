@@ -36,6 +36,7 @@ public class WiseTrackerBridge extends CordovaPlugin {
 
                 Log.d("cordova", "init");
                 WiseTracker.init(context);
+                WiseTracker.startPage("CORDOVA_APP_START");
                 callbackContext.success("init success");
                 return true;
 
