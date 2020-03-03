@@ -68,6 +68,11 @@
             <!-- 개발용 true 배포용 false 권장 -->
             <meta-data android:name="WiseTrackerLogState" android:value="true" />
 
+            <!-- Wisetracker App Key 삽입 -->
+            <meta-data
+                android:name="WiseTrackerKey"
+                android:value="YOUR_APP_KEY" />
+
         </config-file>
 
         <source-file src="src/android/WiseTrackerBridge.java"
