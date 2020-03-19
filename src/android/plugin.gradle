@@ -3,5 +3,5 @@ repositories {
 }
 
 dependencies {
-    implementation 'kr.co.wisetracker.insight:SDK_V1:21.3.30'
+    implementation 'kr.co.wisetracker.insight:SDK_V1:21.3.31'
 }
