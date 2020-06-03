@@ -12,8 +12,9 @@ import org.json.JSONException;
 import kr.co.wisetracker.tracker.WiseTracker;
 
 /**
- * This class echoes a string called from JavaScript.
- */
+* cordova <-> cordova android 플러그인 브릿지 클래스
+* cordova에서 넘어온 데이터를 통해 Natvie SDK 호출
+*/
 public class WiseTrackerBridge extends CordovaPlugin {
 
     @Override

@@ -8,6 +8,10 @@ import android.util.Log;
 
 import kr.co.wisetracker.tracker.WiseTracker;
 
+/**
+ * 고객사 cordova 프로젝트에서 딥링크 이용시 편리하게 Native SDK 호출이 가능하도록 하기 위해 제공하는 Activity
+ * 고객사에서 직접 딥링크로 오픈되는 Activity를 생성후 그 곳에서 SDK 태깅 해도 무방 (해당 Activity는 고객사 개발 편의를 위해 제공)
+ */
 public class DeepLinkActivity extends Activity {
 
     @Override
